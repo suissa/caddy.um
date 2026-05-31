@@ -1,0 +1,19 @@
+module user_identity {
+  properties {
+    body {
+      "user_id" {
+        canonical_label "userID"
+        value_type UserID
+      }
+      "user_name" {
+        canonical_label "userName"
+        value_type UserName
+      }
+    }
+    
+    identity {
+      key body.userID
+      canonical_label body.userName
+    }
+  }
+}
