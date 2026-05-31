@@ -1,6 +1,6 @@
 localhost {
     # Aqui você chama o seu módulo customizado
-    meu_modulo
+    my_module, user_identity
 
     # O resto da sua configuração padrão do Caddy
     respond "Olá, requisição passou pelo meu módulo!"
