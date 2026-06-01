@@ -1,0 +1,12 @@
+:8080 {
+    route /secure-api/* {
+        # Ativa a validação baseada no arquivo .um
+        api_guard
+
+        # Se passar pelo api_guard, responde com sucesso
+        respond "Acesso concedido! Dados confidenciais aqui."
+    }
+
+    # Rota pública livre
+    respond "Esta rota é pública!"
+}
