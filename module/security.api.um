@@ -1,0 +1,27 @@
+property ApiKey {
+  type string
+
+  semantics {
+    sensitive
+    cacheable
+  }
+
+  behaviors {
+    validate {
+      input string
+      output boolean
+      flow {
+        // O compilador traduzirá este bloco para carregar o arquivo txt em memória
+        // e realizar a busca O(1) contra o header "API_KEY"
+        check_against_secure_file "api_keys.txt"
+      }
+    }
+  }
+}
+
+entity ApiGuard {
+  actions {
+    authorize ->
+      ApiKey.validate
+  }
+}
